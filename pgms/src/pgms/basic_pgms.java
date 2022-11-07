@@ -1,4 +1,5 @@
 package pgms;
+import java.util.Scanner;
 
 public class basic_pgms {
 
@@ -6,13 +7,20 @@ public class basic_pgms {
 		// TODO Auto-generated method stub
 		//time complexity = O(n^2)
 		//BUBBLE SORT
-		int[] n= {23,109,2,56,20};
-		for (int i=0;i<n.length;i++) {
-			for (int j=i+1;j<n.length;j++) {
-				if(n[i]>n[j]) {
-					int temp = n[i];
-					n[i]=n[j];
-					n[j]=temp;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the array size");
+		int n=sc.nextInt();
+		System.out.println("Enter the array");
+		int[] arr= new int[n];
+		for(int i=0;i<n;i++) {
+			arr[i]=sc.nextInt();
+		}
+		for(int i=0;i<arr.length;i++) {
+			for(int j=i+1;j<arr.length;j++) {
+				if(arr[i]>arr[j]) {
+					int temp=arr[i];
+					arr[i]=arr[j];
+					arr[j]=temp;
 				}
 			}
 		}
@@ -36,18 +44,18 @@ public class basic_pgms {
 		//time complexity = O(log n)
 		int search = 109;
 		int low=0;
-		int high=n.length-1;
+		int high=arr.length-1;
 		int mid=0;
 		while(low<=high) {
 			mid=(low+high)/2;
-			if(search==n[mid]) {
+			if(search==arr[mid]) {
 				System.out.println("index of searched value is"+mid);
 				break;
 			}
-			else if(n[mid]>search) {
+			else if(arr[mid]>search) {
 				high =mid-1;
 			}
-			else if(n[mid]<search) {
+			else if(arr[mid]<search) {
 				low=mid+1;
 			}
 			
